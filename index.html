@@ -1,0 +1,2734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Malik Group of Companies - scrap trading, general trading, transport, and general contracting in Abu Dhabi, UAE." />
+  <title>Malik Group of Companies | Modern UAE Industrial Services</title>
+  <style>
+    :root {
+      --bg: #050505;
+      --bg-2: #0b0b0d;
+      --card: rgba(255, 255, 255, 0.075);
+      --card-strong: rgba(255, 255, 255, 0.12);
+      --line: rgba(255, 255, 255, 0.13);
+      --text: #ffffff;
+      --muted: #b9bbc3;
+      --soft: #e9e9ec;
+      --red: #ec111a;
+      --red-2: #ff343d;
+      --dark-red: #8e070d;
+      --gold: #ffcc4d;
+      --green: #32d583;
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.55);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --max: 1240px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 12% 4%, rgba(236, 17, 26, 0.28), transparent 30%),
+        radial-gradient(circle at 86% 18%, rgba(255, 255, 255, 0.10), transparent 28%),
+        radial-gradient(circle at 50% 82%, rgba(236, 17, 26, 0.12), transparent 34%),
+        var(--bg);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img, video {
+      max-width: 100%;
+      display: block;
+    }
+
+    .noise {
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.22;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at center, black, transparent 78%);
+    }
+
+    .cursor-glow {
+      pointer-events: none;
+      width: 380px;
+      height: 380px;
+      position: fixed;
+      left: var(--mx, 50%);
+      top: var(--my, 50%);
+      transform: translate(-50%, -50%);
+      z-index: -1;
+      border-radius: 999px;
+      background: radial-gradient(circle, rgba(236, 17, 26, 0.18), transparent 62%);
+      filter: blur(10px);
+      transition: 0.08s linear;
+    }
+
+    .top-bar {
+      background: #0a0a0a;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .top-bar-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 0;
+    }
+
+    .top-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.05);
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--soft);
+      font-weight: 700;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(22px);
+      background: rgba(5, 5, 5, 0.82);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: max-content;
+    }
+
+    .brand-logo {
+      width: 58px;
+      height: 58px;
+      border-radius: 17px;
+      background: #fff;
+      object-fit: contain;
+      padding: 5px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.15), 0 18px 48px rgba(236,17,26,0.24);
+    }
+
+    .brand-title {
+      display: grid;
+      gap: 2px;
+    }
+
+    .brand-title strong {
+      font-size: 20px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .brand-title span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .nav-links a {
+      padding: 12px 13px;
+      border-radius: 999px;
+      color: #dadce2;
+      font-size: 14px;
+      font-weight: 700;
+      transition: 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+      background: rgba(236,17,26,0.16);
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .btn {
+      border: 0;
+      outline: 0;
+      cursor: pointer;
+      border-radius: 999px;
+      padding: 14px 20px;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      white-space: nowrap;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-red {
+      background: linear-gradient(135deg, var(--red), var(--dark-red));
+      box-shadow: 0 18px 40px rgba(236,17,26,0.30);
+    }
+
+    .btn-red:hover {
+      box-shadow: 0 22px 52px rgba(236,17,26,0.46);
+    }
+
+    .btn-white {
+      background: #fff;
+      color: #111;
+    }
+
+    .btn-ghost {
+      background: rgba(255,255,255,0.075);
+      border: 1px solid var(--line);
+    }
+
+    .menu-btn {
+      display: none;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--line);
+      color: #fff;
+      font-size: 22px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: calc(100vh - 112px);
+      padding: 86px 0 56px;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,0.86), rgba(0,0,0,0.36), rgba(0,0,0,0.90)),
+        url("https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1800&q=80") center/cover;
+      opacity: 0.42;
+    }
+
+    .hero-wrap {
+      position: relative;
+      z-index: 2;
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      align-items: center;
+      gap: 48px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      background: rgba(236,17,26,0.13);
+      border: 1px solid rgba(236,17,26,0.42);
+      border-radius: 999px;
+      padding: 9px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 0 6px rgba(50,213,131,0.13);
+    }
+
+    .hero h1 {
+      font-size: clamp(46px, 7vw, 94px);
+      line-height: 0.94;
+      letter-spacing: -0.06em;
+      max-width: 820px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 span {
+      color: var(--red-2);
+      text-shadow: 0 0 44px rgba(236,17,26,0.30);
+    }
+
+    .hero-lead {
+      color: #dedfe5;
+      font-size: clamp(17px, 1.7vw, 22px);
+      line-height: 1.7;
+      max-width: 720px;
+      margin-bottom: 30px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 34px;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .glass-card {
+      background: linear-gradient(145deg, rgba(255,255,255,0.15), rgba(255,255,255,0.045));
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+      overflow: hidden;
+    }
+
+    .dashboard-card {
+      padding: 24px;
+      transform: rotate(1.4deg);
+    }
+
+    .main-logo-panel {
+      min-height: 250px;
+      border-radius: 28px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(236,17,26,0.28), transparent 40%),
+        linear-gradient(135deg, #fff, #d9d9d9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .main-logo-panel::after {
+      content: "MALIK GROUP";
+      position: absolute;
+      right: -20px;
+      bottom: 18px;
+      font-size: 54px;
+      font-weight: 900;
+      color: rgba(0,0,0,0.07);
+      letter-spacing: -0.03em;
+    }
+
+    .main-logo-panel img {
+      width: min(72%, 320px);
+      position: relative;
+      z-index: 1;
+      animation: float 4s ease-in-out infinite;
+      filter: drop-shadow(0 26px 24px rgba(0,0,0,0.25));
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .mini-box {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.26);
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+
+    .mini-box strong {
+      display: block;
+      font-size: 26px;
+      color: var(--red-2);
+      margin-bottom: 6px;
+    }
+
+    .mini-box span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .floating-card {
+      position: absolute;
+      width: 210px;
+      padding: 16px;
+      border-radius: 22px;
+      background: rgba(5,5,5,0.76);
+      border: 1px solid rgba(255,255,255,0.18);
+      box-shadow: 0 20px 54px rgba(0,0,0,0.45);
+      backdrop-filter: blur(18px);
+      animation: drift 5s ease-in-out infinite;
+    }
+
+    .floating-card.one {
+      left: -42px;
+      top: 54px;
+    }
+
+    .floating-card.two {
+      right: -28px;
+      bottom: 70px;
+      animation-delay: 1.3s;
+    }
+
+    @keyframes drift {
+      0%, 100% { transform: translateY(0) rotate(-1deg); }
+      50% { transform: translateY(-12px) rotate(1deg); }
+    }
+
+    .floating-card b {
+      color: var(--gold);
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .floating-card small {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .ticker {
+      width: 100%;
+      overflow: hidden;
+      border-block: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .ticker-track {
+      display: flex;
+      width: max-content;
+      animation: ticker 24s linear infinite;
+    }
+
+    .ticker-item {
+      padding: 17px 30px;
+      color: #e7e8ec;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .ticker-item span {
+      color: var(--red-2);
+      margin: 0 18px;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    section {
+      padding: 92px 0;
+    }
+
+    .container {
+      width: min(var(--max), calc(100% - 40px));
+      margin: auto;
+    }
+
+    .section-head {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 28px;
+      align-items: end;
+      margin-bottom: 38px;
+    }
+
+    .section-kicker {
+      color: var(--red-2);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-head h2 {
+      font-size: clamp(34px, 4.6vw, 60px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: 720px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 26px;
+    }
+
+    .about-story {
+      padding: 32px;
+      border-radius: var(--radius-xl);
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+
+    .about-story h3 {
+      font-size: 30px;
+      margin-bottom: 16px;
+    }
+
+    .about-story p {
+      color: var(--muted);
+      line-height: 1.8;
+      margin-bottom: 16px;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 86px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 20px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.055);
+      border: 1px solid var(--line);
+    }
+
+    .year {
+      color: var(--red-2);
+      font-size: 24px;
+      font-weight: 900;
+    }
+
+    .timeline-item h4 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      min-height: 318px;
+      position: relative;
+      overflow: hidden;
+      padding: 26px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+      border: 1px solid var(--line);
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(236,17,26,0.55);
+      box-shadow: 0 24px 70px rgba(236,17,26,0.13);
+    }
+
+    .service-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      border-radius: 999px;
+      background: rgba(236,17,26,0.20);
+      filter: blur(45px);
+      right: -80px;
+      top: -80px;
+      opacity: 0;
+      transition: 0.3s ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(236,17,26,0.16);
+      border: 1px solid rgba(236,17,26,0.28);
+      font-size: 27px;
+      margin-bottom: 22px;
+    }
+
+    .service-card h3 {
+      font-size: 24px;
+      line-height: 1.1;
+      margin-bottom: 13px;
+    }
+
+    .service-card p {
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card ul {
+      list-style: none;
+      display: grid;
+      gap: 8px;
+      color: #e6e6e8;
+      font-size: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-card li::before {
+      content: "✓";
+      color: var(--green);
+      margin-right: 8px;
+      font-weight: 900;
+    }
+
+    .companies {
+      background:
+        radial-gradient(circle at 20% 0%, rgba(236,17,26,0.20), transparent 30%),
+        #08080a;
+      border-block: 1px solid var(--line);
+    }
+
+    .company-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .company-card {
+      min-height: 360px;
+      padding: 30px;
+      border-radius: var(--radius-xl);
+      position: relative;
+      overflow: hidden;
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.15), rgba(0,0,0,0.85)),
+        var(--image) center/cover;
+      border: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .company-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(236,17,26,0.32), transparent 42%);
+    }
+
+    .company-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .company-card h3 {
+      font-size: 34px;
+      margin-bottom: 12px;
+      max-width: 560px;
+    }
+
+    .company-card p {
+      color: #e4e5e9;
+      line-height: 1.65;
+      margin-bottom: 18px;
+      max-width: 600px;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 22px;
+    }
+
+    .media-feature {
+      min-height: 520px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(180deg, transparent, rgba(0,0,0,0.86)),
+        url("https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=1600&q=80") center/cover;
+      border: 1px solid var(--line);
+    }
+
+    .play-button {
+      position: absolute;
+      left: 34px;
+      top: 34px;
+      width: 82px;
+      height: 82px;
+      border-radius: 999px;
+      display: grid;
+      place-items: center;
+      background: rgba(236,17,26,0.92);
+      box-shadow: 0 20px 52px rgba(236,17,26,0.35);
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.25s ease;
+    }
+
+    .play-button:hover {
+      transform: scale(1.08);
+    }
+
+    .media-caption {
+      position: absolute;
+      left: 34px;
+      right: 34px;
+      bottom: 34px;
+    }
+
+    .media-caption h3 {
+      font-size: 38px;
+      margin-bottom: 10px;
+      letter-spacing: -0.035em;
+    }
+
+    .media-caption p {
+      color: #dddfe7;
+      line-height: 1.65;
+      max-width: 680px;
+    }
+
+    .gallery-side {
+      display: grid;
+      gap: 22px;
+    }
+
+    .gallery-tile {
+      min-height: 249px;
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(180deg, transparent, rgba(0,0,0,0.82)),
+        var(--image) center/cover;
+      border: 1px solid var(--line);
+    }
+
+    .gallery-tile span {
+      position: absolute;
+      left: 22px;
+      right: 22px;
+      bottom: 20px;
+      font-weight: 900;
+      font-size: 20px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .project-card {
+      padding: 26px;
+      border-radius: 28px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px);
+      background: var(--card-strong);
+    }
+
+    .project-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 20px;
+    }
+
+    .chip {
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(236,17,26,0.13);
+      border: 1px solid rgba(236,17,26,0.25);
+      color: #fff;
+      font-weight: 800;
+      font-size: 12px;
+    }
+
+    .process {
+      background: #08080a;
+      border-block: 1px solid var(--line);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      counter-reset: step;
+    }
+
+    .process-card {
+      counter-increment: step;
+      padding: 26px;
+      border-radius: 28px;
+      background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-card::before {
+      content: "0" counter(step);
+      display: block;
+      color: rgba(255,255,255,0.17);
+      font-size: 64px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      margin-bottom: 34px;
+    }
+
+    .process-card h3 {
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .process-card p {
+      color: var(--muted);
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .team-card {
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--line);
+      min-height: 330px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .avatar {
+      height: 210px;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at top, rgba(236,17,26,0.28), transparent 48%),
+        linear-gradient(145deg, #24242a, #0c0c0e);
+      font-size: 62px;
+      font-weight: 900;
+      color: rgba(255,255,255,0.15);
+    }
+
+    .team-info {
+      padding: 20px;
+    }
+
+    .team-info h3 {
+      font-size: 20px;
+      margin-bottom: 7px;
+    }
+
+    .team-info p {
+      color: var(--muted);
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .quote-panel {
+      padding: 34px;
+      border-radius: var(--radius-xl);
+      background:
+        radial-gradient(circle at 5% 0%, rgba(236,17,26,0.26), transparent 30%),
+        linear-gradient(145deg, rgba(255,255,255,0.12), rgba(255,255,255,0.04));
+      border: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .quote-copy h2 {
+      font-size: clamp(34px, 4.5vw, 58px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+      margin-bottom: 18px;
+    }
+
+    .quote-copy p {
+      color: var(--muted);
+      line-height: 1.75;
+      margin-bottom: 22px;
+    }
+
+    .fun-output {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      padding: 18px;
+      border-radius: 20px;
+      background: rgba(0,0,0,0.28);
+      border: 1px solid var(--line);
+      color: var(--gold);
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 1.45;
+    }
+
+    .quote-form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: grid;
+      gap: 8px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      color: #f0f0f2;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.30);
+      color: #fff;
+      border-radius: 16px;
+      padding: 15px 16px;
+      font-family: inherit;
+      outline: none;
+    }
+
+    textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: rgba(236,17,26,0.70);
+      box-shadow: 0 0 0 4px rgba(236,17,26,0.12);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 0.85fr 1.15fr;
+      gap: 22px;
+    }
+
+    .contact-card {
+      padding: 28px;
+      border-radius: 30px;
+      background: var(--card);
+      border: 1px solid var(--line);
+    }
+
+    .contact-card h3 {
+      font-size: 28px;
+      margin-bottom: 18px;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-line {
+      display: flex;
+      gap: 13px;
+      align-items: flex-start;
+      padding: 15px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid var(--line);
+    }
+
+    .contact-line b {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .contact-line span {
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .map-card {
+      min-height: 420px;
+      border-radius: 30px;
+      background:
+        linear-gradient(135deg, rgba(236,17,26,0.22), rgba(0,0,0,0.75)),
+        url("https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=1600&q=80") center/cover;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .map-pin {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: 18px 22px;
+      border-radius: 24px;
+      background: rgba(0,0,0,0.76);
+      border: 1px solid rgba(255,255,255,0.20);
+      backdrop-filter: blur(18px);
+      box-shadow: var(--shadow);
+      max-width: 330px;
+    }
+
+    .map-pin b {
+      display: block;
+      font-size: 20px;
+      margin-bottom: 7px;
+      color: var(--red-2);
+    }
+
+    .map-pin span {
+      color: #e6e7ec;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    .footer {
+      background: #020202;
+      border-top: 1px solid var(--line);
+      padding: 52px 0 22px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 0.7fr 0.7fr 0.9fr;
+      gap: 28px;
+      margin-bottom: 38px;
+    }
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .footer-logo img {
+      width: 56px;
+      height: 56px;
+      object-fit: contain;
+      border-radius: 16px;
+      background: #fff;
+      padding: 5px;
+    }
+
+    .footer h3 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+
+    .footer p, .footer a {
+      color: var(--muted);
+      line-height: 1.7;
+      font-size: 14px;
+    }
+
+    .footer-links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+      border-top: 1px solid var(--line);
+      padding-top: 20px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .quick-actions {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 60;
+      display: grid;
+      gap: 10px;
+    }
+
+    .quick-actions a, .to-top {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: rgba(236,17,26,0.94);
+      border: 1px solid rgba(255,255,255,0.16);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .quick-actions .call {
+      background: rgba(255,255,255,0.94);
+      color: #111;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(10px);
+    }
+
+    .modal.show {
+      display: grid;
+    }
+
+    .modal-box {
+      width: min(900px, 100%);
+      border-radius: 28px;
+      background: #101012;
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .close {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .video-placeholder {
+      min-height: 440px;
+      display: grid;
+      place-items: center;
+      padding: 30px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(236,17,26,0.20), rgba(0,0,0,0.72)),
+        url("https://images.unsplash.com/photo-1517089596392-fb9a9033e05c?auto=format&fit=crop&w=1600&q=80") center/cover;
+    }
+
+    .video-placeholder h3 {
+      font-size: 34px;
+      margin-bottom: 12px;
+    }
+
+    .video-placeholder p {
+      color: #e5e7ed;
+      line-height: 1.65;
+      max-width: 600px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: 0.75s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .preloader {
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at center, rgba(236,17,26,0.22), transparent 36%),
+        #030303;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+
+    .preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-card {
+      width: min(360px, calc(100% - 40px));
+      padding: 34px;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.08);
+      text-align: center;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
+    }
+
+    .loader-card img {
+      width: 110px;
+      height: 110px;
+      margin: 0 auto 18px;
+      object-fit: contain;
+      background: #fff;
+      border-radius: 24px;
+      padding: 8px;
+      animation: pulseLogo 1.2s ease-in-out infinite;
+    }
+
+    @keyframes pulseLogo {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 0 rgba(236,17,26,0)); }
+      50% { transform: scale(1.06); filter: drop-shadow(0 0 24px rgba(236,17,26,0.55)); }
+    }
+
+    .loader-card strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .loader-card span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .premium-strip {
+      padding: 32px 0;
+      background: linear-gradient(90deg, rgba(236,17,26,0.16), rgba(255,255,255,0.06), rgba(236,17,26,0.16));
+      border-bottom: 1px solid var(--line);
+    }
+
+    .premium-strip-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+    }
+
+    .premium-stat {
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(0,0,0,0.28);
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .premium-stat strong {
+      display: block;
+      font-size: clamp(28px, 4vw, 46px);
+      color: var(--red-2);
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+    }
+
+    .premium-stat span {
+      color: var(--muted);
+      font-weight: 800;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .signature {
+      background:
+        radial-gradient(circle at 10% 5%, rgba(236,17,26,0.24), transparent 28%),
+        radial-gradient(circle at 90% 90%, rgba(255,255,255,0.08), transparent 30%),
+        #070709;
+      border-block: 1px solid var(--line);
+    }
+
+    .signature-layout {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .signature-card {
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.08), rgba(0,0,0,0.80)),
+        url("https://images.unsplash.com/photo-1605152276897-4f618f831968?auto=format&fit=crop&w=1500&q=80") center/cover;
+      min-height: 540px;
+      padding: 34px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .signature-card::after {
+      content: "";
+      position: absolute;
+      inset: auto -20% -30% -20%;
+      height: 55%;
+      background: radial-gradient(circle, rgba(236,17,26,0.42), transparent 65%);
+      filter: blur(20px);
+    }
+
+    .signature-card h2,
+    .signature-card p,
+    .signature-card .pill {
+      position: relative;
+      z-index: 1;
+    }
+
+    .signature-card h2 {
+      font-size: clamp(36px, 4.8vw, 64px);
+      line-height: 0.96;
+      letter-spacing: -0.055em;
+      margin-bottom: 18px;
+    }
+
+    .signature-card p {
+      color: #e8e9ef;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      max-width: 620px;
+    }
+
+    .advantage-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .advantage {
+      padding: 24px;
+      border-radius: 26px;
+      background: rgba(255,255,255,0.075);
+      border: 1px solid var(--line);
+      min-height: 170px;
+    }
+
+    .advantage b {
+      display: block;
+      font-size: 21px;
+      margin-bottom: 10px;
+    }
+
+    .advantage p {
+      color: var(--muted);
+      line-height: 1.62;
+      font-size: 15px;
+    }
+
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .industry {
+      min-height: 160px;
+      padding: 22px;
+      border-radius: 26px;
+      border: 1px solid var(--line);
+      background: linear-gradient(145deg, rgba(255,255,255,0.10), rgba(255,255,255,0.035));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: 0.3s ease;
+    }
+
+    .industry:hover {
+      transform: translateY(-8px);
+      border-color: rgba(236,17,26,0.55);
+    }
+
+    .industry span {
+      font-size: 32px;
+    }
+
+    .industry b {
+      font-size: 17px;
+      line-height: 1.25;
+    }
+
+    .showcase-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      grid-template-rows: 270px 270px;
+      gap: 18px;
+    }
+
+    .showcase {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.84)),
+        var(--image) center/cover;
+    }
+
+    .showcase.big {
+      grid-row: span 2;
+    }
+
+    .showcase-content {
+      position: absolute;
+      left: 26px;
+      right: 26px;
+      bottom: 24px;
+    }
+
+    .showcase-content h3 {
+      font-size: clamp(24px, 3vw, 42px);
+      margin-bottom: 10px;
+      letter-spacing: -0.035em;
+    }
+
+    .showcase-content p {
+      color: #e4e5ec;
+      line-height: 1.6;
+      max-width: 680px;
+    }
+
+    .trust-panel {
+      padding: 38px;
+      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(236,17,26,0.16), rgba(255,255,255,0.07)),
+        rgba(255,255,255,0.04);
+      display: grid;
+      grid-template-columns: 0.7fr 1.3fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .trust-panel h2 {
+      font-size: clamp(34px, 4vw, 56px);
+      line-height: 1;
+      letter-spacing: -0.045em;
+    }
+
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+
+    .trust-item {
+      padding: 20px;
+      border-radius: 22px;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--line);
+    }
+
+    .trust-item b {
+      display: block;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .trust-item span {
+      color: var(--muted);
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .faq-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .faq {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.06);
+      border-radius: 22px;
+      overflow: hidden;
+    }
+
+    .faq button {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      text-align: left;
+      font-size: 18px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .faq p {
+      display: none;
+      padding: 0 22px 22px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .faq.open p {
+      display: block;
+    }
+
+    .faq.open button span {
+      transform: rotate(45deg);
+    }
+
+    .falling {
+      pointer-events: none;
+      position: fixed;
+      z-index: 120;
+      top: -40px;
+      font-size: 28px;
+      animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(520deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 1100px) {
+      .hero-wrap,
+      .about-grid,
+      .media-grid,
+      .quote-panel,
+      .contact-grid,
+      .section-head,
+      .signature-layout,
+      .trust-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .services-grid,
+      .process-grid,
+      .team-grid,
+      .premium-strip-grid,
+      .industries-grid,
+      .trust-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .floating-card {
+        display: none;
+      }
+    }
+
+    @media (max-width: 860px) {
+      .top-bar {
+        display: none;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        top: 92px;
+        padding: 16px;
+        border-radius: 22px;
+        background: rgba(8,8,10,0.96);
+        border: 1px solid var(--line);
+        box-shadow: var(--shadow);
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        border-radius: 14px;
+      }
+
+      .nav-actions .btn {
+        display: none;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .hero {
+        padding-top: 58px;
+      }
+
+      .dashboard-card {
+        transform: none;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .top-bar-inner,
+      .nav-inner,
+      .container,
+      .hero-wrap {
+        width: min(100% - 28px, var(--max));
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .brand-title strong {
+        font-size: 16px;
+      }
+
+      .brand-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .hero-actions,
+      .hero-tags {
+        align-items: stretch;
+      }
+
+      .btn {
+        width: 100%;
+      }
+
+      .mini-grid,
+      .services-grid,
+      .company-grid,
+      .projects-grid,
+      .process-grid,
+      .team-grid,
+      .quote-form,
+      .footer-grid,
+      .premium-strip-grid,
+      .advantage-grid,
+      .industries-grid,
+      .trust-grid,
+      .showcase-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .showcase-grid {
+        grid-template-rows: auto;
+      }
+
+      .showcase,
+      .showcase.big {
+        min-height: 360px;
+        grid-row: auto;
+      }
+
+      .media-feature {
+        min-height: 440px;
+      }
+
+      .company-card,
+      .gallery-tile,
+      .media-feature,
+      .map-card {
+        border-radius: 24px;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="loader-card">
+      <img src="WATER_MARK_RED_4.jpg" alt="Malik Group loading logo" />
+      <strong>Malik Group</strong>
+      <span>Preparing UAE industrial excellence...</span>
+    </div>
+  </div>
+
+  <div class="noise"></div>
+  <div class="cursor-glow"></div>
+
+  <div class="top-bar">
+    <div class="top-bar-inner">
+      <div class="top-links">
+        <span>📍 Plot Number 4 M-12, Musaffah, Abu Dhabi</span>
+        <a href="mailto:info@malikgroup.ae">✉️ info@malikgroup.ae</a>
+        <a href="tel:+971543509250">📞 +971 54 350 9250</a>
+      </div>
+      <span class="pill"><span class="dot"></span> Serving UAE Since 2008</span>
+    </div>
+  </div>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a class="brand" href="#home" aria-label="Malik Group home">
+        <img class="brand-logo" src="WATER_MARK_RED_4.jpg" alt="Malik Group logo" />
+        <span class="brand-title">
+          <strong>Malik Group</strong>
+          <span>Scrap • Transport • Contracting</span>
+        </span>
+      </a>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#companies">Companies</a>
+        <a href="#media">Media</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="mailto:info@malikgroup.ae">Email</a>
+        <a class="btn btn-red" href="#quote">Get Quote</a>
+        <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="hero-wrap">
+      <div class="hero-copy reveal">
+        <div class="eyebrow"><span class="dot"></span> UAE industrial services with serious power</div>
+        <h1>One group. <span>Heavy work</span> made simple.</h1>
+        <p class="hero-lead">
+          Malik Group of Companies is a UAE-based enterprise founded in 2008, providing scrap trading,
+          general trading, transport and general contracting services from Musaffah, Abu Dhabi to clients
+          across the Emirates.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-red" onclick="beCustomer()">Be Our Customer 😄</button>
+          <a class="btn btn-white" href="#services">Explore Services</a>
+          <button class="btn btn-ghost" onclick="openVideo()">Watch Work Video</button>
+        </div>
+        <div class="hero-tags">
+          <span class="pill">♻️ Scrap Trading</span>
+          <span class="pill">🚛 Transportation</span>
+          <span class="pill">🏗️ General Contracting</span>
+          <span class="pill">⚙️ Machinery Support</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal">
+        <div class="glass-card dashboard-card">
+          <div class="main-logo-panel">
+            <img src="WATER_MARK_RED_4.jpg" alt="Malik Group logo large" />
+          </div>
+          <div class="mini-grid">
+            <div class="mini-box">
+              <strong>2008</strong>
+              <span>Founded and growing across UAE</span>
+            </div>
+            <div class="mini-box">
+              <strong>4+</strong>
+              <span>Main industrial service divisions</span>
+            </div>
+            <div class="mini-box">
+              <strong>UAE</strong>
+              <span>Operations across the Emirates</span>
+            </div>
+            <div class="mini-box">
+              <strong>MG</strong>
+              <span>Reliable, sustainable solutions</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="floating-card one">
+          <b>Fast Site Response</b>
+          <small>Tell us the work. We arrange manpower, trucks and equipment.</small>
+        </div>
+        <div class="floating-card two">
+          <b>Customer Mode: ON</b>
+          <small>Click “Be Our Customer” and see the page come alive.</small>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="ticker">
+    <div class="ticker-track">
+      <div class="ticker-item">Scrap Trading <span>•</span> General Trading <span>•</span> Transport <span>•</span> General Contracting <span>•</span> Site Clearance <span>•</span> Waste Removal <span>•</span></div>
+      <div class="ticker-item">Scrap Trading <span>•</span> General Trading <span>•</span> Transport <span>•</span> General Contracting <span>•</span> Site Clearance <span>•</span> Waste Removal <span>•</span></div>
+    </div>
+  </div>
+
+  <section class="premium-strip" aria-label="Malik Group highlights">
+    <div class="container premium-strip-grid">
+      <div class="premium-stat reveal">
+        <strong data-count="2008">0</strong>
+        <span>Founded in UAE</span>
+      </div>
+      <div class="premium-stat reveal">
+        <strong data-count="4">0</strong>
+        <span>Core divisions</span>
+      </div>
+      <div class="premium-stat reveal">
+        <strong data-count="7">0</strong>
+        <span>Days support mindset</span>
+      </div>
+      <div class="premium-stat reveal">
+        <strong>UAE</strong>
+        <span>Operations coverage</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">About Malik Group</div>
+          <h2>Built for serious industrial work.</h2>
+        </div>
+        <p>
+          Malik Group has grown into a trusted UAE-based enterprise offering comprehensive services in
+          scrap trading, general trading, transport and contracting. The focus is reliability,
+          sustainability, operational excellence and customer satisfaction.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-story reveal">
+          <h3>Who we are</h3>
+          <p>
+            Headquartered in Musaffah, Abu Dhabi, Malik Group supports industrial sites, contractors,
+            companies and clients who need quick handling of scrap, materials, transportation, manpower,
+            machinery and site clearance.
+          </p>
+          <p>
+            This design keeps the original company information, but presents it in a stronger,
+            more premium style with modern animation, better layout and customer-focused calls to action.
+          </p>
+          <button class="btn btn-red" onclick="beCustomer()">I want to work with Malik Group</button>
+        </div>
+
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <div class="year">2008</div>
+            <div>
+              <h4>Company foundation</h4>
+              <p>Malik Group begins its journey and starts building a strong UAE business reputation.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="year">UAE</div>
+            <div>
+              <h4>Expanded operations</h4>
+              <p>Services extend across the Emirates with focus on Abu Dhabi, Musaffah and industrial sectors.</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="year">Now</div>
+            <div>
+              <h4>Multi-service group</h4>
+              <p>Scrap trading, general trading, transport, general contracting, site support and sustainable solutions.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Our Services</div>
+          <h2>From scrap yard to project site.</h2>
+        </div>
+        <p>
+          A full industrial service layout for the real work Malik Group does: scrap collection,
+          buying, loading, transport, equipment support, waste removal and contracting assistance.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="icon">♻️</div>
+          <h3>Scrap Trading</h3>
+          <p>Buying, collection and handling of metal, cable, machinery and mixed industrial scrap.</p>
+          <ul>
+            <li>MS, SS and mixed scrap</li>
+            <li>Cable and machinery scrap</li>
+            <li>Weighbridge coordination</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="icon">🚛</div>
+          <h3>Transport & Logistics</h3>
+          <p>Reliable movement of materials, scrap, equipment and project loads across UAE.</p>
+          <ul>
+            <li>Trucks and pickups</li>
+            <li>Site-to-yard transport</li>
+            <li>Fast scheduling support</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="icon">🏗️</div>
+          <h3>General Contracting</h3>
+          <p>Project support services for industrial, commercial and yard-based work.</p>
+          <ul>
+            <li>Site preparation</li>
+            <li>Manpower support</li>
+            <li>Contracting assistance</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="icon">🧹</div>
+          <h3>Site Clearance</h3>
+          <p>Complete removal and cleaning support after scrap collection or project work.</p>
+          <ul>
+            <li>Waste removal</li>
+            <li>Area cleaning</li>
+            <li>Loading and removal</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="icon">⚙️</div>
+          <h3>Machinery Support</h3>
+          <p>Support for heavy jobs requiring machines, operators and site handling equipment.</p>
+          <ul>
+            <li>Excavator support</li>
+            <li>Wheel loader support</li>
+            <li>Jack hammer work</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="icon">📦</div>
+          <h3>General Trading</h3>
+          <p>Trading support for materials, industrial requirements and business supply needs.</p>
+          <ul>
+            <li>Industrial materials</li>
+            <li>Client-based supply</li>
+            <li>Flexible sourcing</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="icon">🛢️</div>
+          <h3>Waste Handling</h3>
+          <p>Cleaning and waste movement support for yards, sites and industrial premises.</p>
+          <ul>
+            <li>Garbage clearance</li>
+            <li>Industrial waste support</li>
+            <li>Approved disposal planning</li>
+          </ul>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="icon">🤝</div>
+          <h3>Client Support</h3>
+          <p>Quick communication and practical service planning based on site conditions.</p>
+          <ul>
+            <li>Quotation support</li>
+            <li>Inspection planning</li>
+            <li>Work coordination</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="signature">
+    <div class="container">
+      <div class="signature-layout">
+        <div class="signature-card reveal">
+          <span class="pill">🏆 Premium UAE industrial partner</span>
+          <h2>Designed to look powerful before the first call.</h2>
+          <p>
+            A strong company website should make the customer feel confidence immediately:
+            clear services, serious visuals, quick contact, and proof that the team can handle real site work.
+          </p>
+        </div>
+
+        <div class="advantage-grid">
+          <div class="advantage reveal">
+            <b>⚡ Fast action</b>
+            <p>For scrap, transport and site clearance work, speed matters. The design pushes customers directly to call, WhatsApp or request a quote.</p>
+          </div>
+          <div class="advantage reveal">
+            <b>🛡️ Professional trust</b>
+            <p>Founded in 2008, Musaffah location, team members and service divisions are shown clearly for credibility.</p>
+          </div>
+          <div class="advantage reveal">
+            <b>🏗️ Heavy industry feel</b>
+            <p>Dark premium visuals, red brand color, industrial photography and motion effects give a serious UAE business image.</p>
+          </div>
+          <div class="advantage reveal">
+            <b>📲 Customer-first</b>
+            <p>Mobile responsive, WhatsApp ready, fast navigation and a quotation form make it easy for a customer to take action.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="companies" id="companies">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Our Companies</div>
+          <h2>Specialized divisions under one group.</h2>
+        </div>
+        <p>
+          The website shows Malik Group with company divisions including New Malik Scrap Trading
+          and New Malik Transportation and General Contracting. This section presents them with a
+          stronger visual identity.
+        </p>
+      </div>
+
+      <div class="company-grid">
+        <article class="company-card reveal" style="--image:url('https://images.unsplash.com/photo-1532619187608-e5375cab36aa?auto=format&fit=crop&w=1400&q=80')">
+          <h3>New Malik Scrap Trading</h3>
+          <p>
+            Scrap collection, metal trading, cable scrap, machinery scrap and industrial material handling
+            with professional transportation and yard coordination.
+          </p>
+          <a class="btn btn-red" href="#quote">Request Scrap Quote</a>
+        </article>
+
+        <article class="company-card reveal" style="--image:url('https://images.unsplash.com/photo-1616432043562-3671ea2e5242?auto=format&fit=crop&w=1400&q=80')">
+          <h3>New Malik Transportation & General Contracting</h3>
+          <p>
+            Transport, heavy equipment, site clearance, demolition support, maintenance and project
+            services for UAE industrial clients.
+          </p>
+          <a class="btn btn-red" href="#quote">Request Transport Quote</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Industries Served</div>
+          <h2>Built for UAE’s working sectors.</h2>
+        </div>
+        <p>
+          Malik Group can present itself as a partner for contractors, factories, yards, industrial sites,
+          power projects, construction companies and businesses that need fast practical service.
+        </p>
+      </div>
+
+      <div class="industries-grid">
+        <div class="industry reveal"><span>🏭</span><b>Factories & yards</b></div>
+        <div class="industry reveal"><span>🏗️</span><b>Construction sites</b></div>
+        <div class="industry reveal"><span>⚡</span><b>Power & utility projects</b></div>
+        <div class="industry reveal"><span>🚢</span><b>Ports & logistics</b></div>
+        <div class="industry reveal"><span>🏢</span><b>Commercial facilities</b></div>
+        <div class="industry reveal"><span>♻️</span><b>Recycling & scrap</b></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="media">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Photos & Videos</div>
+          <h2>Make the work visible.</h2>
+        </div>
+        <p>
+          Replace these background images with your real Malik Group website photos or videos.
+          The design already has the structure: hero media, gallery tiles and video popup.
+        </p>
+      </div>
+
+      <div class="media-grid">
+        <div class="media-feature reveal">
+          <button class="play-button" onclick="openVideo()" aria-label="Open video">▶</button>
+          <div class="media-caption">
+            <h3>Industrial work, transport and scrap handling</h3>
+            <p>
+              A premium video block for yard work, loading, trucks, cranes, machinery and site clearance clips.
+              You can place your real video file here later.
+            </p>
+          </div>
+        </div>
+
+        <div class="gallery-side">
+          <div class="gallery-tile reveal" style="--image:url('https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?auto=format&fit=crop&w=900&q=80')">
+            <span>Scrap collection and yard handling</span>
+          </div>
+          <div class="gallery-tile reveal" style="--image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=900&q=80')">
+            <span>Transport and logistics support</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Visual Showcase</div>
+          <h2>A website that feels expensive.</h2>
+        </div>
+        <p>
+          This section is for real Malik Group project photos: trucks loaded, scrap yards, machinery,
+          site clearance, cable drums, containers and industrial work. Replace the placeholder images
+          with your original media for the final version.
+        </p>
+      </div>
+
+      <div class="showcase-grid">
+        <article class="showcase big reveal" style="--image:url('https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=1500&q=80')">
+          <div class="showcase-content">
+            <h3>Heavy work. Clean handover.</h3>
+            <p>Show completed site clearance, before/after work and client project photos here.</p>
+          </div>
+        </article>
+        <article class="showcase reveal" style="--image:url('https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1000&q=80')">
+          <div class="showcase-content">
+            <h3>Machinery support</h3>
+            <p>Excavator, loader, cutting, lifting and manpower visuals.</p>
+          </div>
+        </article>
+        <article class="showcase reveal" style="--image:url('https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?auto=format&fit=crop&w=1000&q=80')">
+          <div class="showcase-content">
+            <h3>Fleet movement</h3>
+            <p>Trucks and logistics support across Abu Dhabi and UAE.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Project Capability</div>
+          <h2>Practical support for demanding sites.</h2>
+        </div>
+        <p>
+          Use these cards for real completed work. They are written in a professional way so the
+          company looks strong to new customers.
+        </p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card reveal">
+          <div>
+            <h3>Industrial Scrap Clearance</h3>
+            <p>Collection, loading and removal of mixed scrap from industrial and commercial project areas.</p>
+          </div>
+          <div class="project-meta">
+            <span class="chip">Scrap</span>
+            <span class="chip">Loading</span>
+            <span class="chip">Transport</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div>
+            <h3>Site Cleaning & Waste Removal</h3>
+            <p>Manpower and machinery support for clearing sites and handing over clean work areas.</p>
+          </div>
+          <div class="project-meta">
+            <span class="chip">Cleaning</span>
+            <span class="chip">Waste</span>
+            <span class="chip">Manpower</span>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div>
+            <h3>Transport Fleet Support</h3>
+            <p>Truck and pickup arrangements for material movement, scrap loads and project logistics.</p>
+          </div>
+          <div class="project-meta">
+            <span class="chip">Fleet</span>
+            <span class="chip">UAE</span>
+            <span class="chip">Logistics</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">How It Works</div>
+          <h2>Simple for the customer.</h2>
+        </div>
+        <p>
+          This gives the website a clear customer journey. A client sees how to contact Malik Group
+          and how the work will move from inspection to completion.
+        </p>
+      </div>
+
+      <div class="process-grid">
+        <article class="process-card reveal">
+          <h3>Send Requirement</h3>
+          <p>Customer shares site location, material type, photos and work requirement.</p>
+        </article>
+        <article class="process-card reveal">
+          <h3>Inspection & Quote</h3>
+          <p>Malik Group checks the work and gives a clear quotation or service plan.</p>
+        </article>
+        <article class="process-card reveal">
+          <h3>Arrange Resources</h3>
+          <p>Trucks, manpower, machinery and site support are arranged as required.</p>
+        </article>
+        <article class="process-card reveal">
+          <h3>Complete & Handover</h3>
+          <p>Work is completed, area is cleared and the customer is updated professionally.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="trust-panel reveal">
+        <h2>Why customers should choose Malik Group.</h2>
+        <div class="trust-grid">
+          <div class="trust-item">
+            <b>Clear scope</b>
+            <span>Work can be defined by material, manpower, machinery, transport and site requirements.</span>
+          </div>
+          <div class="trust-item">
+            <b>Practical execution</b>
+            <span>The website shows the group as hands-on, action-focused and ready for industrial jobs.</span>
+          </div>
+          <div class="trust-item">
+            <b>UAE presence</b>
+            <span>Musaffah, Abu Dhabi base with service reach across the Emirates.</span>
+          </div>
+          <div class="trust-item">
+            <b>Sustainable work</b>
+            <span>Scrap trading and recycling support connects business service with environmental value.</span>
+          </div>
+          <div class="trust-item">
+            <b>Fast contact</b>
+            <span>Call, email, WhatsApp and quotation actions are always easy to find.</span>
+          </div>
+          <div class="trust-item">
+            <b>Premium image</b>
+            <span>Strong design makes Malik Group feel bigger, sharper and more competitive.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="team">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Team</div>
+          <h2>People behind the group.</h2>
+        </div>
+        <p>
+          Based on the current site team section: Malik Nisar, Noorudheen Palathingal,
+          Sardar Ali and Abdu Rasheed Thottathil.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card reveal">
+          <div class="avatar">MN</div>
+          <div class="team-info">
+            <h3>Malik Nisar</h3>
+            <p>Founder, CEO</p>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="avatar">NP</div>
+          <div class="team-info">
+            <h3>Noorudheen Palathingal</h3>
+            <p>General Manager</p>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="avatar">SA</div>
+          <div class="team-info">
+            <h3>Sardar Ali</h3>
+            <p>Office Manager</p>
+          </div>
+        </article>
+        <article class="team-card reveal">
+          <div class="avatar">AR</div>
+          <div class="team-info">
+            <h3>Abdu Rasheed Thottathil</h3>
+            <p>Business Development Manager</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="quote">
+    <div class="container">
+      <div class="quote-panel reveal">
+        <div class="quote-copy">
+          <div class="section-kicker">Become Our Customer</div>
+          <h2>Tell us the work. We’ll bring the muscle.</h2>
+          <p>
+            Scrap pile? Need truck? Site messy? Machinery required? Press the button and let Malik Group
+            turn heavy work into a completed job.
+          </p>
+          <button class="btn btn-red" onclick="beCustomer()">Be Our Customer Now</button>
+          <div class="fun-output" id="funOutput">
+            Click the button. Malik Group customer mode is waiting.
+          </div>
+        </div>
+
+        <form class="quote-form" onsubmit="sendQuote(event)">
+          <div class="field">
+            <label for="name">Name / Company</label>
+            <input id="name" type="text" placeholder="Your company name" />
+          </div>
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" type="text" placeholder="+971..." />
+          </div>
+          <div class="field">
+            <label for="service">Required Service</label>
+            <select id="service">
+              <option>Scrap Trading</option>
+              <option>Transportation</option>
+              <option>General Contracting</option>
+              <option>Site Clearance</option>
+              <option>Waste Removal</option>
+              <option>Machinery Support</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" type="text" placeholder="Abu Dhabi / Dubai / UAE" />
+          </div>
+          <div class="field full">
+            <label for="message">Work Details</label>
+            <textarea id="message" placeholder="Write details like material, quantity, site condition, machinery needed..."></textarea>
+          </div>
+          <div class="field full">
+            <button class="btn btn-red" type="submit">Prepare WhatsApp Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">FAQ</div>
+          <h2>Questions customers ask.</h2>
+        </div>
+        <p>
+          These FAQs help customers understand the work quickly and reduce unnecessary calls.
+          You can add more questions later.
+        </p>
+      </div>
+
+      <div class="faq-grid">
+        <div class="faq reveal">
+          <button type="button">Do you collect scrap from project sites? <span>+</span></button>
+          <p>Yes. The website presents Malik Group for scrap collection, loading, removal and transport from industrial and project sites.</p>
+        </div>
+        <div class="faq reveal">
+          <button type="button">Can Malik Group arrange transport and manpower? <span>+</span></button>
+          <p>Yes. Customers can request transport, manpower, site clearance and machinery support depending on the site condition.</p>
+        </div>
+        <div class="faq reveal">
+          <button type="button">Where is Malik Group located? <span>+</span></button>
+          <p>Malik Group is headquartered at Plot Number 4 M-12, Musaffah, Abu Dhabi, UAE.</p>
+        </div>
+        <div class="faq reveal">
+          <button type="button">How can a customer request a quote? <span>+</span></button>
+          <p>The customer can use the quotation form, WhatsApp button, email or call button directly from the website.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="section-kicker">Contact</div>
+          <h2>Ready to start?</h2>
+        </div>
+        <p>
+          Contact Malik Group for scrap trading, transport, contracting, machinery support,
+          site clearance and industrial service requirements.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card reveal">
+          <h3>Malik Group</h3>
+          <div class="contact-list">
+            <a class="contact-line" href="tel:+971543509250">
+              <span>📞</span>
+              <span><b>Call Us</b><span>+971 54 350 9250</span></span>
+            </a>
+            <a class="contact-line" href="mailto:info@malikgroup.ae">
+              <span>✉️</span>
+              <span><b>Email</b><span>info@malikgroup.ae</span></span>
+            </a>
+            <div class="contact-line">
+              <span>📍</span>
+              <span><b>Address</b><span>Plot Number 4 M-12, Musaffah, Abu Dhabi</span></span>
+            </div>
+            <div class="contact-line">
+              <span>🕒</span>
+              <span><b>Service</b><span>Scrap, transport, trading and contracting support across UAE</span></span>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-card reveal">
+          <div class="map-pin">
+            <b>Musaffah, Abu Dhabi</b>
+            <span>Headquartered in one of UAE’s important industrial areas, supporting projects across the Emirates.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">
+            <img src="WATER_MARK_RED_4.jpg" alt="Malik Group logo footer" />
+            <div>
+              <h3>Malik Group</h3>
+              <p>Moving Forward. Building Strong.</p>
+            </div>
+          </div>
+          <p>
+            UAE-based group offering scrap trading, general trading, transport and general contracting
+            from Musaffah, Abu Dhabi.
+          </p>
+        </div>
+
+        <div>
+          <h3>Website</h3>
+          <div class="footer-links">
+            <a href="#about">About Us</a>
+            <a href="#services">Services</a>
+            <a href="#companies">Our Companies</a>
+            <a href="#projects">Projects</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Services</h3>
+          <div class="footer-links">
+            <a href="#services">Scrap Trading</a>
+            <a href="#services">Transport</a>
+            <a href="#services">General Contracting</a>
+            <a href="#services">Site Clearance</a>
+          </div>
+        </div>
+
+        <div>
+          <h3>Contact</h3>
+          <p>Plot Number 4 M-12, Musaffah, Abu Dhabi</p>
+          <p>+971 54 350 9250</p>
+          <p>info@malikgroup.ae</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Malik Group of Companies. All rights reserved.</span>
+        <span>Modern concept website prepared for Malik Group.</span>
+      </div>
+    </div>
+  </footer>
+
+  <div class="quick-actions">
+    <a class="call" href="tel:+971543509250" aria-label="Call Malik Group">📞</a>
+    <a href="https://wa.me/971543509250" aria-label="WhatsApp Malik Group">💬</a>
+    <button class="to-top" onclick="scrollToTop()" aria-label="Go to top">↑</button>
+  </div>
+
+  <div class="modal" id="videoModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <strong>Malik Group Work Video</strong>
+        <button class="close" onclick="closeVideo()">×</button>
+      </div>
+      <div class="video-placeholder">
+        <div>
+          <h3>Place your real Malik Group video here</h3>
+          <p>
+            If you have a video file, replace this section with:
+            <br />
+            &lt;video src="your-video.mp4" controls autoplay&gt;&lt;/video&gt;
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const preloader = document.getElementById("preloader");
+    const navLinks = document.getElementById("navLinks");
+    const menuBtn = document.getElementById("menuBtn");
+    const funOutput = document.getElementById("funOutput");
+    const videoModal = document.getElementById("videoModal");
+
+    window.addEventListener("load", () => {
+      setTimeout(() => preloader.classList.add("hide"), 650);
+    });
+
+    menuBtn.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => navLinks.classList.remove("open"));
+    });
+
+    window.addEventListener("mousemove", (event) => {
+      document.documentElement.style.setProperty("--mx", event.clientX + "px");
+      document.documentElement.style.setProperty("--my", event.clientY + "px");
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          if (entry.target.classList.contains("premium-stat")) {
+            const number = entry.target.querySelector("[data-count]");
+            if (number && !number.dataset.done) animateCounter(number);
+          }
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+    function animateCounter(element) {
+      element.dataset.done = "true";
+      const target = Number(element.dataset.count);
+      const duration = target > 100 ? 1600 : 900;
+      const start = performance.now();
+
+      function tick(now) {
+        const progress = Math.min((now - start) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        element.textContent = Math.round(target * eased);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+
+      requestAnimationFrame(tick);
+    }
+
+    document.querySelectorAll(".faq button").forEach(button => {
+      button.addEventListener("click", () => {
+        const faq = button.parentElement;
+        faq.classList.toggle("open");
+      });
+    });
+
+    function beCustomer() {
+      const messages = [
+        "Welcome to Malik Group. Your heavy work just became our responsibility ✅",
+        "Customer mode activated: trucks, manpower and machinery are warming up 🚛",
+        "You bring the work. Malik Group brings the muscle 💪",
+        "Scrap? Transport? Site clearance? Say less — Malik Group is ready ♻️",
+        "Congratulations. Your project just found a serious UAE team 🏗️",
+        "Warning: Malik Group may complete your work faster than expected 😄"
+      ];
+
+      funOutput.textContent = messages[Math.floor(Math.random() * messages.length)];
+
+      for (let i = 0; i < 36; i++) {
+        const icons = ["🚛", "♻️", "🏗️", "⚙️", "💪", "✅", "🔥", "🧹"];
+        const item = document.createElement("div");
+        item.className = "falling";
+        item.textContent = icons[Math.floor(Math.random() * icons.length)];
+        item.style.left = Math.random() * 100 + "vw";
+        item.style.animationDuration = (Math.random() * 2 + 2.5) + "s";
+        item.style.fontSize = (Math.random() * 18 + 20) + "px";
+        document.body.appendChild(item);
+        setTimeout(() => item.remove(), 5200);
+      }
+    }
+
+    function openVideo() {
+      videoModal.classList.add("show");
+    }
+
+    function closeVideo() {
+      videoModal.classList.remove("show");
+    }
+
+    videoModal.addEventListener("click", (event) => {
+      if (event.target === videoModal) closeVideo();
+    });
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    function sendQuote(event) {
+      event.preventDefault();
+
+      const name = document.getElementById("name").value.trim() || "Customer";
+      const phone = document.getElementById("phone").value.trim() || "Not provided";
+      const service = document.getElementById("service").value;
+      const location = document.getElementById("location").value.trim() || "Not provided";
+      const message = document.getElementById("message").value.trim() || "Please contact me for details.";
+
+      const text =
+        "Hello Malik Group,%0A%0A" +
+        "I want a quotation.%0A" +
+        "Name / Company: " + encodeURIComponent(name) + "%0A" +
+        "Phone: " + encodeURIComponent(phone) + "%0A" +
+        "Service: " + encodeURIComponent(service) + "%0A" +
+        "Location: " + encodeURIComponent(location) + "%0A" +
+        "Details: " + encodeURIComponent(message);
+
+      window.open("https://wa.me/971543509250?text=" + text, "_blank");
+    }
+  </script>
+</body>
+</html>
